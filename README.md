@@ -1,6 +1,6 @@
 # Homework_Yourcarsharing_Flask
 
-Проект: https://peaceful-harbor-24430.herokuapp.com/
+Запущенный проект: https://peaceful-harbor-24430.herokuapp.com/
 
 Дипломный проект Your-carsharing
  
