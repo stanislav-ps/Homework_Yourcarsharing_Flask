@@ -75,7 +75,7 @@
                         <div class="page-block">
                             <div class="row align-items-center">
                                 <div class="col-md-8" style="z-index: 9">
-                                    <h5 class="m-b-10">Автомобиль Mercedes CLA</h5>
+                                    <h5 class="m-b-10">Автомобиль {{ item.title }}</h5>
                                     <p class="m-b-0">Арендуй автомобиль и катайся с удовольствием</p>
                                 </div>
                                 <div class="col-md-4" style="z-index: 9">
@@ -128,8 +128,6 @@
                                             <p>{{ item.description }}</p>
                                             <hr class="mt-5 mb-4">
                                             <p>Коробка передач:
-                                                <!-- Если у автомобиля автоматическая коробка передач,-->
-                                                <!-- то должно выводиться "Автомат"-->
                                                 <strong>
                                                     {% if item.is_automatic %}
                                                     Автоматическая
@@ -137,19 +135,13 @@
                                                     Механическая
                                                     {% endif %}
                                                 </strong>
-                                                <!-- Если у автомобиля не автоматическая коробка передач,-->
-                                                <!-- то должно выводиться "Механика"-->
-                                                <!--<strong>Механика</strong>-->
                                             </p>
                                             <p>Доступность:
-                                                <!-- Если автомобиль свободен, то должно выводиться "Свободен" -->
                                                 {% if item.is_available %}
                                                 <strong class="text-success">Свободен</strong>
                                                 {% else %}
                                                 <strong class="text-danger">Занят</strong>
                                                 {% endif %}
-                                                <!-- Если автомобиль занят, то должно выводиться "Занят" -->
-                                                <!--<span class="text-danger">Занят</span>-->
                                             </p>
                                             <h3>{{ item.price|round(1) }} руб/мин</h3>
                                             <hr class="mt-4 mb-5">
@@ -179,7 +171,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!--====================  End of Car's info ====================-->
 
@@ -196,10 +187,8 @@
 <script src="/static/js/pcoded.min.js"></script>
 <script src="/static/js/vertical-layout.min.js"></script>
 
-<!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-<!-- Initialize Swiper -->
 <script>
     var swiper = new Swiper(".mySwiper", {
         pagination: {

@@ -96,7 +96,7 @@
                     <!--====================  End of Page header ====================-->
 
                     <!--====================  Car's info ====================-->
-                     <div class="row p-3">
+                    <div class="row p-3">
                         <div class="col-12 mt-5">
                             <div class="card mb-2">
                                 <ul class="nav-tabs text-center">
@@ -122,7 +122,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <button type="submit" class="btn btn-success mt-2 me-4" name="action" value="save">
+                                            <button type="submit" class="btn btn-success mt-2 me-4" name="action"
+                                                    value="save">
                                                 <i class="bi bi-save"></i>Загрузить
                                             </button>
                                             {% if form.errors %}
@@ -152,20 +153,20 @@
                                                 <form method="post" action="">
                                                     {{ form.hidden_tag() }}
                                                     {{ form.picture_id(type="hidden", value=loop.index) }}
-                                                    <button type="submit" class="btn btn-danger" name="action" value="del">
+                                                    <button type="submit" class="btn btn-danger" name="action"
+                                                            value="del">
                                                         <i class="bi bi-x-circle"></i>Удалить
                                                     </button>
                                                 </form>
                                             </td>
                                         </tr>
                                         {% endfor %}
-                                         {% endif %}
+                                        {% endif %}
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!--====================  End of Car's info ====================-->
 
