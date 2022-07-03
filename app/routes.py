@@ -42,9 +42,9 @@ def auto_create():
 @app.route('/auto-update/<item_id>', methods=['GET', 'POST'])
 def item_update(item_id):
     item = Auto.query.get(item_id)
-    journal1 = Journal.query.filter_by(auto_id=item_id).all()
-    if journal1:
-        for j in journal1:
+    journal_auto = Journal.query.filter_by(auto_id=item_id).all()
+    if journal_auto:
+        for j in journal_auto:
             diff = datetime.strptime(j.time_end, '%d.%m.%Y %H:%M') - datetime.strptime(j.time_start, '%d.%m.%Y %H:%M')
             j.price = float(diff.seconds / 60) * float(item.price)
     form = ItemUpdateForm(title=item.title, price=item.price.__round__(1), description=item.description, main_pic=item.main_pic, is_available=item.is_available, is_automatic=item.is_automatic)
@@ -66,7 +66,7 @@ def item_update(item_id):
             db.session.delete(item)
         db.session.commit()
         return redirect(success_url)
-    return render_template('auto_update.html', item=item, journal=journal1, form=form)
+    return render_template('auto_update.html', item=item, journal=journal_auto, form=form)
 
 
 @app.route('/auto-images/<item_id>', methods=['GET', 'POST'])
