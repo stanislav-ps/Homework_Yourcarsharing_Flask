@@ -93,7 +93,7 @@ def images_update(item_id):
                 pictures_list = item.pictures.split(',')
                 list_id = int(item.picture_id - 1)
                 pictures_list.pop(list_id)
-                item.pictures = ','.join(str(item1) for item1 in pictures_list)
+                item.pictures = ','.join(str(item_journal) for item_journal in pictures_list)
         db.session.commit()
         return redirect(success_url)
     return render_template('auto_images.html', item=item, form=form)
@@ -107,12 +107,12 @@ def auto_detail(item_id):
         action = request.form.get('action', '')
         now = datetime.now()
         if action == 'rent_start':
-            item1 = Journal()
-            item1.auto_id = item_id
-            item1.user_id = 1
-            item1.time_start = now.strftime("%d.%m.%Y %H:%M")
+            item_journal = Journal()
+            item_journal.auto_id = item_id
+            item_journal.user_id = 1
+            item_journal.time_start = now.strftime("%d.%m.%Y %H:%M")
             item.is_available = False
-            db.session.add(item1)
+            db.session.add(item_journal)
         elif action == 'rent_stop':
             item2 = Journal.query.filter_by(auto_id=item_id, user_id=1).order_by(Journal.id.desc()).first()
             item2.time_end = now.strftime("%d.%m.%Y %H:%M")
